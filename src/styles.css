@@ -133,3 +133,7 @@ button.btn-location {
   font-size: small;
   text-align: center;
 }
+.github-link,
+.github-link:visited {
+  color: #1a535c;
+}
