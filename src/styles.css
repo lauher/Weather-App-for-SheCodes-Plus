@@ -1,0 +1,135 @@
+body {
+  border-color: #ffde7d;
+  color: #00b8a9;
+  display: block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+h1 {
+  display: inline;
+}
+h2 {
+  color: #f6416c;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+p {
+  margin: 0px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+input,
+button.btn-search,
+button.btn-location {
+  margin: 0 5px 0 0;
+}
+/* #input-bar {
+  display-inline;
+} */
+
+.card {
+  border-color: #ffde7d;
+  margin: 5px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.card-body {
+  padding: 5px;
+}
+#city-input {
+  border-color: #ffde7d;
+}
+#city-input:focus {
+  border-color: #ffde7d;
+  box-shadow: 0 0 0 0.25rem rgb(255 222 125 / 25%);
+}
+.btn-search {
+  border-color: #f6416c;
+  color: #f6416c;
+}
+.btn-search:hover {
+  background: #f6416c;
+  border-color: #f6416c;
+  transition: all 500ms ease;
+}
+.btn-search:active {
+  border-color: #f6416c;
+  background: #f6416c;
+}
+.btn-search:focus {
+  box-shadow: 0 0 0 0.25rem rgb(246 65 108 / 50%);
+}
+
+.btn-location {
+  border-color: #00b8a9;
+  color: #00b8a9;
+}
+.btn-location:hover {
+  background: #00b8a9;
+  border-color: #00b8a9;
+  transition: all 500ms ease;
+}
+.btn-location:active {
+  border-color: #00b8a9;
+  background: #00b8a9;
+}
+.btn-location:focus {
+  box-shadow: 0 0 0 0.25rem rgb(0 184 169 / 50%);
+}
+
+.btn-group {
+  position: relative;
+  right: 0;
+  top: 0;
+}
+.btn-temp {
+  border-color: #1a535c;
+  color: #1a535c;
+}
+.temp-check:checked + .btn-temp {
+  background-color: #1a535c;
+  border-color: #1a535c;
+  color: #fff;
+}
+.btn-temp:hover {
+  background: #1a535c;
+  border-color: #1a535c;
+  transition: all 500ms ease;
+}
+.temp-check:focus + .btn-temp,
+.temp-check:focus + .btn-temp:focus,
+.btn-temp:focus {
+  box-shadow: 0 0 0 0.25rem rgb(26 83 92 / 50%);
+}
+
+#country {
+  font-size: small;
+  font-style: italic;
+}
+
+.row {
+  --bs-gutter-x: 5px;
+}
+.card.today h2 strong {
+  font-size: 60px;
+}
+.weather-icon {
+  color: #1a535c;
+  font-size: 45px;
+}
+.icon-lg {
+  font-size: 70px;
+}
+.card-footer {
+  background-color: #f8f3d4;
+  border-top: 1px solid #ffde7d;
+  display: block;
+  font-size: small;
+  text-align: center;
+}
