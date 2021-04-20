@@ -9,6 +9,7 @@ function updateWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed * 3.6
   );
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 }
 
 function searchCity(city) {
