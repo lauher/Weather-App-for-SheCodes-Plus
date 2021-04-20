@@ -6,6 +6,9 @@ function updateWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed * 3.6
+  );
 }
 
 function searchCity(city) {
