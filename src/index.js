@@ -98,7 +98,7 @@ let locationSearch = document.querySelector("#current-location");
 locationSearch.addEventListener("click", getCurrentLocation);
 
 // Feature #2: formatDate
-let currentTime = document.querySelector("#now-time");
+let currentTime = document.querySelector("#time");
 let currentDate = new Date();
 currentTime.innerHTML = formatDate(currentDate);
 
