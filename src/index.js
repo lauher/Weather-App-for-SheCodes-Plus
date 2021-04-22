@@ -7,6 +7,15 @@ function updateWeather(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  document
+    .querySelector("#icon-now")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon-now")
+    .setAttribute("alt", response.data.weather[0].description);
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -70,32 +79,6 @@ function formatDate(timestamp) {
   return `${currentDay} ${currentHours}:${currentMinutes}`;
 }
 
-// function formatDate(date) {
-//   let dayIndex = date.getDay();
-//   let days = [
-//     "Sunday",
-//     "Monday",
-//     "Tuesday",
-//     "Wednesday",
-//     "Thursday",
-//     "Friday",
-//     "Saturday",
-//   ];
-//   let currentDay = days[dayIndex];
-
-//   let currentHours = date.getHours();
-//   if (currentHours < 10) {
-//     currentHours = `0${currentHours}`;
-//   }
-
-//   let currentMinutes = date.getMinutes();
-//   if (currentMinutes < 10) {
-//     currentMinutes = `0${currentMinutes}`;
-//   }
-
-//   return `${currentDay} ${currentHours}:${currentMinutes}`;
-// }
-
 // function convertFahrenheit(event) {
 //   event.preventDefault();
 //   let tempElement = document.querySelector(".temperature");
@@ -125,8 +108,6 @@ searchForm.addEventListener("submit", handleSearch);
 //Feature #1b: searchLocation - activated by searching via current location
 let locationSearch = document.querySelector("#current-location");
 locationSearch.addEventListener("click", getCurrentLocation);
-
-// Feature #2: formatDate
 
 // Feature #3: switchTemperature
 
