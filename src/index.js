@@ -1,6 +1,9 @@
 function updateWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#country").innerHTML = response.data.sys.country;
+  document.querySelector("#time").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -41,8 +44,8 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function formatDate(date) {
-  let dayIndex = date.getDay();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -52,7 +55,7 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let currentDay = days[dayIndex];
+  let currentDay = days[date.getDay()];
 
   let currentHours = date.getHours();
   if (currentHours < 10) {
@@ -67,16 +70,42 @@ function formatDate(date) {
   return `${currentDay} ${currentHours}:${currentMinutes}`;
 }
 
-function convertFahrenheit(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector(".temperature");
-  let tempCelc = tempElement.innerHTML;
-  tempCelc = Number(tempCelc);
-  let tempFahr = Math.round(tempCelc * (9 / 5) + 32);
-  tempElement.innerHTML = `${tempFahr}`;
-  let tempScale = document.querySelector(".scale");
-  tempScale.innerHTML = `°F`;
-}
+// function formatDate(date) {
+//   let dayIndex = date.getDay();
+//   let days = [
+//     "Sunday",
+//     "Monday",
+//     "Tuesday",
+//     "Wednesday",
+//     "Thursday",
+//     "Friday",
+//     "Saturday",
+//   ];
+//   let currentDay = days[dayIndex];
+
+//   let currentHours = date.getHours();
+//   if (currentHours < 10) {
+//     currentHours = `0${currentHours}`;
+//   }
+
+//   let currentMinutes = date.getMinutes();
+//   if (currentMinutes < 10) {
+//     currentMinutes = `0${currentMinutes}`;
+//   }
+
+//   return `${currentDay} ${currentHours}:${currentMinutes}`;
+// }
+
+// function convertFahrenheit(event) {
+//   event.preventDefault();
+//   let tempElement = document.querySelector(".temperature");
+//   let tempCelc = tempElement.innerHTML;
+//   tempCelc = Number(tempCelc);
+//   let tempFahr = Math.round(tempCelc * (9 / 5) + 32);
+//   tempElement.innerHTML = `${tempFahr}`;
+//   let tempScale = document.querySelector(".scale");
+//   tempScale.innerHTML = `°F`;
+// }
 
 // function convertCelcius(event) {
 //   event.preventDefault();
@@ -98,9 +127,6 @@ let locationSearch = document.querySelector("#current-location");
 locationSearch.addEventListener("click", getCurrentLocation);
 
 // Feature #2: formatDate
-let currentTime = document.querySelector("#time");
-let currentDate = new Date();
-currentTime.innerHTML = formatDate(currentDate);
 
 // Feature #3: switchTemperature
 
