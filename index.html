@@ -50,29 +50,34 @@
                 <i class="fas fa-map-marker-alt"></i>
               </button>
               <div
-                class="btn-group"
+                class="btn-group unit-switch"
+                data-toggle="button"
                 role="group"
-                aria-label="Temperature scale button"
+                aria-label="Unit switch button"
               >
                 <input
                   type="radio"
-                  class="btn-check temp-check"
+                  class="btn-check btn-temp temp-check"
                   name="tempScale"
-                  id="tempC"
+                  id="celsius-link"
                   autocomplete="off"
                   checked
                 />
-                <label class="btn btn-outline-primary btn-temp" for="tempC"
+                <label
+                  class="btn btn-outline-primary btn-temp"
+                  for="celsius-link"
                   >°C</label
                 >
                 <input
                   type="radio"
-                  class="btn-check temp-check"
+                  class="btn-check btn-temp temp-check"
                   name="tempScale"
-                  id="tempF"
+                  id="fahrenheit-link"
                   autocomplete="off"
                 />
-                <label class="btn btn-outline-primary btn-temp" for="tempF"
+                <label
+                  class="btn btn-outline-primary btn-temp"
+                  for="fahrenheit-link"
                   >°F</label
                 >
               </div>
@@ -91,7 +96,7 @@
                       <br />
                       <strong>
                         <span id="temperature"></span>
-                        <span class="scale">°C</span>
+                        <span id="unit">°C</span>
                       </strong>
                     </h2>
                     <img src="" alt="" id="icon-now" />

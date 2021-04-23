@@ -4,8 +4,9 @@ function updateWeather(response) {
   document.querySelector("#time").innerHTML = formatDate(
     response.data.dt * 1000
   );
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
+    celsiusTemperature
   );
   document
     .querySelector("#icon-now")
@@ -53,6 +54,23 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+function switchFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = celsiusTemperature * (9 / 5) + 32;
+  document.querySelector("#temperature").innerHTML = Math.round(
+    fahrenheitTemperature
+  );
+  document.querySelector("#unit").innerHTML = "°F";
+}
+
+function switchCelsius(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML = Math.round(
+    celsiusTemperature
+  );
+  document.querySelector("#unit").innerHTML = "°C";
+}
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let days = [
@@ -79,28 +97,6 @@ function formatDate(timestamp) {
   return `${currentDay} ${currentHours}:${currentMinutes}`;
 }
 
-// function convertFahrenheit(event) {
-//   event.preventDefault();
-//   let tempElement = document.querySelector(".temperature");
-//   let tempCelc = tempElement.innerHTML;
-//   tempCelc = Number(tempCelc);
-//   let tempFahr = Math.round(tempCelc * (9 / 5) + 32);
-//   tempElement.innerHTML = `${tempFahr}`;
-//   let tempScale = document.querySelector(".scale");
-//   tempScale.innerHTML = `°F`;
-// }
-
-// function convertCelcius(event) {
-//   event.preventDefault();
-//   let tempElement = document.querySelector(".temperature");
-//   let tempFahr = tempElement.innerHTML;
-//   tempFahr = Number(tempFahr);
-//   let tempCelc = Math.round((tempFahr - 32) * (5 / 9));
-//   tempElement.innerHTML = `${tempCelc}`;
-//   let tempScale = document.querySelector(".scale");
-//   tempScale.innerHTML = `°C`;
-// }
-
 // Feature #1a: handleSearch - activated by searching for a city via the search form
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
@@ -109,13 +105,14 @@ searchForm.addEventListener("submit", handleSearch);
 let locationSearch = document.querySelector("#current-location");
 locationSearch.addEventListener("click", getCurrentLocation);
 
-// Feature #3: switchTemperature
+// Feature #2: switchTemperature
+let fahrenheitButton = document.querySelector("#fahrenheit-link");
+fahrenheitButton.addEventListener("click", switchFahrenheit);
 
-// let fahrenheitButton = document.querySelector("#tempF");
-// fahrenheitButton.addEventListener("click", convertFahrenheit);
+let celsiusButton = document.querySelector("#celsius-link");
+celsiusButton.addEventListener("click", switchCelsius);
 
-// let celciusButton = document.querySelector("#tempC");
-// celciusButton.addEventListener("click", convertCelcius);
+let celsiusTemperature = null;
 
 //default searchvalue
 searchCity("Zürich");
