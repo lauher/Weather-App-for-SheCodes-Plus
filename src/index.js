@@ -1,3 +1,29 @@
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let currentDay = days[date.getDay()];
+
+  let currentHours = date.getHours();
+  if (currentHours < 10) {
+    currentHours = `0${currentHours}`;
+  }
+
+  let currentMinutes = date.getMinutes();
+  if (currentMinutes < 10) {
+    currentMinutes = `0${currentMinutes}`;
+  }
+
+  return `${currentDay} ${currentHours}:${currentMinutes}`;
+}
+
 function updateWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#country").innerHTML = response.data.sys.country;
@@ -76,37 +102,11 @@ function switchCelsius(event) {
   document.querySelector("#unit").innerHTML = "°C";
 }
 
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let currentDay = days[date.getDay()];
-
-  let currentHours = date.getHours();
-  if (currentHours < 10) {
-    currentHours = `0${currentHours}`;
-  }
-
-  let currentMinutes = date.getMinutes();
-  if (currentMinutes < 10) {
-    currentMinutes = `0${currentMinutes}`;
-  }
-
-  return `${currentDay} ${currentHours}:${currentMinutes}`;
-}
-
-// Feature #1a: handleSearch - activated by searching for a city via the search form
+// Feature #1a: update all app-parameters by searching for a city via the search form
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
 
-//Feature #1b: searchLocation - activated by searching via current location
+//Feature #1b: update all app-parameters based upon current location
 let locationSearch = document.querySelector("#current-location");
 locationSearch.addEventListener("click", getCurrentLocation);
 
