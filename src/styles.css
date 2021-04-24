@@ -47,7 +47,7 @@ button.btn-location {
 }
 #city-input:focus {
   border-color: #ffde7d;
-  box-shadow: 0 0 0 0.25rem rgb(255 222 125 / 25%);
+  box-shadow: 0 0 0 0.2rem rgb(255 222 125 / 25%);
 }
 .btn-search {
   border-color: #f6416c;
@@ -63,7 +63,7 @@ button.btn-location {
   background: #f6416c;
 }
 .btn-search:focus {
-  box-shadow: 0 0 0 0.25rem rgb(246 65 108 / 50%);
+  box-shadow: 0 0 0 0.2rem rgb(246 65 108 / 25%);
 }
 
 .btn-location {
@@ -80,32 +80,27 @@ button.btn-location {
   background: #00b8a9;
 }
 .btn-location:focus {
-  box-shadow: 0 0 0 0.25rem rgb(0 184 169 / 50%);
+  box-shadow: 0 0 0 0.2rem rgb(0 184 169 / 25%);
 }
-
-.btn-group {
-  position: relative;
-  right: 0;
-  top: 0;
-}
-.btn-temp {
+.btn-labels {
   border-color: #1a535c;
   color: #1a535c;
 }
-.temp-check:checked + .btn-temp {
+.btn-labels.active,
+.btn-labels:hover {
   background-color: #1a535c;
   border-color: #1a535c;
-  color: #fff;
+  color: white;
 }
-.btn-temp:hover {
-  background: #1a535c;
-  border-color: #1a535c;
-  transition: all 500ms ease;
+.btn-unit-inputs:active + .btn-labels {
+  color: white;
+  background-color: #00b8a9;
+  border-color: #00b8a9;
 }
-.temp-check:focus + .btn-temp,
-.temp-check:focus + .btn-temp:focus,
-.btn-temp:focus {
-  box-shadow: 0 0 0 0.25rem rgb(26 83 92 / 50%);
+
+.btn-unit-inputs:focus + .btn-labels,
+.btn-labels:focus {
+  box-shadow: 0 0 0 0.25rem rgb(26 83 92 / 25%);
 }
 
 #country {

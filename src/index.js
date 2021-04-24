@@ -56,6 +56,8 @@ function getCurrentLocation(event) {
 
 function switchFahrenheit(event) {
   event.preventDefault();
+  document.querySelector("#label-fahr").classList.add("active");
+  document.querySelector("#label-cels").classList.remove("active");
   let fahrenheitTemperature = celsiusTemperature * (9 / 5) + 32;
   document.querySelector("#temperature").innerHTML = Math.round(
     fahrenheitTemperature
@@ -65,6 +67,9 @@ function switchFahrenheit(event) {
 
 function switchCelsius(event) {
   event.preventDefault();
+  document.querySelector("#label-cels").classList.add("active");
+  document.querySelector("#label-fahr").classList.remove("active");
+
   document.querySelector("#temperature").innerHTML = Math.round(
     celsiusTemperature
   );
@@ -106,10 +111,10 @@ let locationSearch = document.querySelector("#current-location");
 locationSearch.addEventListener("click", getCurrentLocation);
 
 // Feature #2: switchTemperature
-let fahrenheitButton = document.querySelector("#fahrenheit-link");
+let fahrenheitButton = document.querySelector("#btn-unit-F");
 fahrenheitButton.addEventListener("click", switchFahrenheit);
 
-let celsiusButton = document.querySelector("#celsius-link");
+let celsiusButton = document.querySelector("#btn-unit-C");
 celsiusButton.addEventListener("click", switchCelsius);
 
 let celsiusTemperature = null;

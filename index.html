@@ -50,34 +50,33 @@
                 <i class="fas fa-map-marker-alt"></i>
               </button>
               <div
-                class="btn-group unit-switch"
-                data-toggle="button"
+                aria-label="unit switch button"
+                class="btn-group"
                 role="group"
-                aria-label="Unit switch button"
               >
                 <input
-                  type="radio"
-                  class="btn-check btn-temp temp-check"
-                  name="tempScale"
-                  id="celsius-link"
                   autocomplete="off"
-                  checked
+                  class="btn-check btn-unit-inputs"
+                  id="btn-unit-C"
+                  type="radio"
                 />
                 <label
-                  class="btn btn-outline-primary btn-temp"
-                  for="celsius-link"
+                  class="btn btn-outline-primary btn-labels active"
+                  for="btn-unit-C"
+                  id="label-cels"
                   >°C</label
                 >
+
                 <input
-                  type="radio"
-                  class="btn-check btn-temp temp-check"
-                  name="tempScale"
-                  id="fahrenheit-link"
                   autocomplete="off"
+                  class="btn-check btn-unit-inputs"
+                  id="btn-unit-F"
+                  type="radio"
                 />
                 <label
-                  class="btn btn-outline-primary btn-temp"
-                  for="fahrenheit-link"
+                  class="btn btn-outline-primary btn-labels"
+                  for="btn-unit-F"
+                  id="label-fahr"
                   >°F</label
                 >
               </div>
