@@ -6,7 +6,11 @@ body {
   margin: 0 auto;
   max-width: 650px;
 }
-
+input,
+button.btn-search,
+button.btn-location {
+  margin: 0 5px 0 0;
+}
 h1 {
   display: inline;
 }
@@ -27,10 +31,8 @@ ul {
 ul:first-letter {
   text-transform: capitalize;
 }
-input,
-button.btn-search,
-button.btn-location {
-  margin: 0 5px 0 0;
+hr {
+  margin: 11px;
 }
 .card {
   border-color: #ffde7d;
@@ -121,6 +123,12 @@ button.btn-location {
 
 #icon-now {
   height: 70px;
+}
+.small-icon,
+.later-temperatures-max,
+.forecast-temperatures-max {
+  color: #1a535c;
+  font-weight: 600;
 }
 
 .card-footer {
