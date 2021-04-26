@@ -121,8 +121,9 @@ hr {
   font-size: 45px;
 }
 
-#icon-now {
+.icon {
   height: 70px;
+  margin: -15px 0px;
 }
 .small-icon,
 .later-temperatures-max,
