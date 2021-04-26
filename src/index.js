@@ -39,7 +39,48 @@ function formatWeekday(timestamp) {
   return days[day];
 }
 
+function formatHour(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  return hour;
+}
+
 function updateForecast(response) {
+  let forecastHours = response.data.hourly;
+  let forecastHoursElement = document.querySelector("#forecast-hours");
+
+  let forecastHoursHTML = `<div class="row">`;
+
+  forecastHours.forEach(function (forecastHour, index) {
+    if (index < 3) {
+      forecastHoursHTML =
+        forecastHoursHTML +
+        `
+      <div class="col">
+        <h2>${formatHour(forecastHour.dt)}:00</h2>
+        <img 
+          src ="http://openweathermap.org/img/wn/${
+            forecastHour.weather[0].icon
+          }@2x.png" 
+          class= "icon"
+          alt="Icon forecast ${forecastHour.weather[0].description}"/>
+        <ul>
+          <li>${forecastHour.weather[0].description}</li>
+          <li>
+            <span class="later-temperatures-max">${Math.round(
+              forecastHour.temp
+            )}° </span>
+          </li>
+        </ul>
+      </div>
+`;
+    }
+  });
+  forecastHoursElement.innerHTML = forecastHoursHTML + "</div>";
+
   let forecastDays = response.data.daily;
   let forecastDaysElement = document.querySelector("#forecast-days");
 
