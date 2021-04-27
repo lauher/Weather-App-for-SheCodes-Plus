@@ -147,10 +147,14 @@ function updateWeather(response) {
     .setAttribute("alt", response.data.weather[0].description);
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed * 3.6
-  );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector(
+    "#wind"
+  ).innerHTML = `<i class="fas fa-wind small-icon"></i>
+  ${Math.round(response.data.wind.speed * 3.6)} km/h`;
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `<i class="fas fa-tint small-icon"></i>
+  ${response.data.main.humidity}%`;
   getCoordinates(response.data.coord);
 }
 
@@ -207,6 +211,7 @@ function switchCelsius(event) {
     celsiusTemperature
   );
   document.querySelector("#unit").innerHTML = "°C";
+  document.querySelector("#disclaimer").innerHTML = "";
 }
 
 // Feature #1a: update all app-parameters by searching for a city via the search form
