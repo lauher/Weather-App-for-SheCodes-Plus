@@ -130,7 +130,12 @@ hr {
   color: #1a535c;
   font-weight: 600;
 }
-
+#disclaimer {
+  color: #f6416c;
+  font-size: smaller;
+  font-weight: 600;
+  margin: -5px 0px 5px 0px;
+}
 .card-footer {
   background-color: #f8f3d4;
   border-top: 1px solid #ffde7d;

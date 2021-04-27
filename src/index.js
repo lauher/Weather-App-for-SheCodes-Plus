@@ -192,9 +192,9 @@ function switchFahrenheit(event) {
     fahrenheitTemperature
   );
   document.querySelector("#unit").innerHTML = "°F";
-  alert(
-    "The conversion feature is currently only supported for the current temperature"
-  );
+  document.querySelector(
+    "#disclaimer"
+  ).innerHTML = `<i class="fas fa-exclamation"></i> The conversion feature is currently only supported for the current temperature`;
 }
 
 function switchCelsius(event) {
