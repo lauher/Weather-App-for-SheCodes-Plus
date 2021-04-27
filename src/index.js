@@ -70,7 +70,7 @@ function updateForecast(response) {
         <ul>
           <li>${forecastHour.weather[0].description}</li>
           <li>
-            <span class="later-temperatures-max">${Math.round(
+            <span class="temperatures-max">${Math.round(
               forecastHour.temp
             )}° </span>
           </li>
@@ -101,10 +101,10 @@ function updateForecast(response) {
       <ul>
         <li>${forecastDay.weather[0].description}</li>
         <li>
-          <span class="forecast-temperatures-max">${Math.round(
+          <span class="temperatures-max">${Math.round(
             forecastDay.temp.max
           )}° </span>
-          <span class="forecast-temperatures-min">${Math.round(
+          <span class="temperatures-min">${Math.round(
             forecastDay.temp.min
           )}°</span>
         </li>
@@ -160,6 +160,7 @@ function searchCity(city) {
   let units = "metric";
   let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(updateWeather);
+  console.log(apiUrl);
 }
 
 function handleSearch(event) {

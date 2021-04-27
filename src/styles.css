@@ -125,8 +125,7 @@ hr {
   margin: -15px 0px;
 }
 .small-icon,
-.later-temperatures-max,
-.forecast-temperatures-max {
+.temperatures-max {
   color: #1a535c;
   font-weight: 600;
 }
