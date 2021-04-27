@@ -55,7 +55,7 @@ function updateForecast(response) {
   let forecastHoursHTML = `<div class="row">`;
 
   forecastHours.forEach(function (forecastHour, index) {
-    if (index < 3) {
+    if (index === 3 || index === 6 || index === 9) {
       forecastHoursHTML =
         forecastHoursHTML +
         `
