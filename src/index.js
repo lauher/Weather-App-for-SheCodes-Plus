@@ -20,7 +20,6 @@ function formatDate(timestamp) {
   if (currentMinutes < 10) {
     currentMinutes = `0${currentMinutes}`;
   }
-
   return `${currentDay} ${currentHours}:${currentMinutes}`;
 }
 
@@ -51,9 +50,7 @@ function formatHour(timestamp) {
 function updateForecast(response) {
   let forecastHours = response.data.hourly;
   let forecastHoursElement = document.querySelector("#forecast-hours");
-
   let forecastHoursHTML = `<div class="row">`;
-
   forecastHours.forEach(function (forecastHour, index) {
     if (index === 3 || index === 6 || index === 9) {
       forecastHoursHTML =
@@ -75,12 +72,9 @@ function updateForecast(response) {
     }
   });
   forecastHoursElement.innerHTML = forecastHoursHTML + "</div>";
-
   let forecastDays = response.data.daily;
   let forecastDaysElement = document.querySelector("#forecast-days");
-
   let forecastDaysHTML = "";
-
   forecastDays.forEach(function (forecastDay, index) {
     if (index < 3) {
       forecastDaysHTML =
@@ -195,7 +189,6 @@ function switchCelsius(event) {
   event.preventDefault();
   document.querySelector("#label-cels").classList.add("active");
   document.querySelector("#label-fahr").classList.remove("active");
-
   document.querySelector("#temperature").innerHTML = Math.round(
     celsiusTemperature
   );

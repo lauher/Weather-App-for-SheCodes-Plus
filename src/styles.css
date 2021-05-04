@@ -4,7 +4,6 @@
   --color-c: #f6416c;
   --color-d: #1a535c;
 }
-
 body {
   border-color: var(--color-a);
   color: var(--color-b);
