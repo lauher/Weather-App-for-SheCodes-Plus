@@ -118,6 +118,8 @@ function getCoordinates(coordinates) {
 }
 
 function updateWeather(response) {
+  document.querySelector("#label-cels").classList.add("active");
+  document.querySelector("#label-fahr").classList.remove("active");
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#country").innerHTML = response.data.sys.country;
   document.querySelector("#time").innerHTML = formatDate(
@@ -127,7 +129,7 @@ function updateWeather(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     celsiusTemperature
   );
-
+  document.querySelector("#unit").innerHTML = "°C";
   document
     .querySelector(".icon-now")
     .setAttribute("class", `wi wi-owm-${response.data.weather[0].id} icon-now`);
@@ -142,6 +144,7 @@ function updateWeather(response) {
   ).innerHTML = `<i class="wi wi-humidity small-icon"></i>
   ${response.data.main.humidity}%`;
   getCoordinates(response.data.coord);
+  document.querySelector("#disclaimer").innerHTML = "";
 }
 
 function searchCity(city) {
