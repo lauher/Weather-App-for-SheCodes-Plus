@@ -61,12 +61,7 @@ function updateForecast(response) {
         `
       <div class="col">
         <h2>${formatHour(forecastHour.dt)}:00</h2>
-        <img 
-          src ="http://openweathermap.org/img/wn/${
-            forecastHour.weather[0].icon
-          }@2x.png" 
-          class= "icon"
-          alt="Icon forecast ${forecastHour.weather[0].description}"/>
+        <i class="wi wi-owm-${forecastHour.weather[0].id} big-icon"></i>
         <ul>
           <li>${forecastHour.weather[0].description}</li>
           <li>
@@ -93,11 +88,7 @@ function updateForecast(response) {
         `<div class="card">
     <div class="card-body">   
       <h2>${formatWeekday(forecastDay.dt)}</h2>
-      <img src ="http://openweathermap.org/img/wn/${
-        forecastDay.weather[0].icon
-      }@2x.png"
-      class = "icon"
-      alt="Icon forecast ${forecastDay.weather[0].description}"/>
+      <i class="wi wi-owm-${forecastDay.weather[0].id} big-icon"></i>
       <ul>
         <li>${forecastDay.weather[0].description}</li>
         <li>
@@ -136,15 +127,10 @@ function updateWeather(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     celsiusTemperature
   );
+
   document
-    .querySelector(".icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector(".icon")
-    .setAttribute("alt", response.data.weather[0].description);
+    .querySelector(".icon-now")
+    .setAttribute("class", `wi wi-owm-${response.data.weather[0].id} icon-now`);
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
   document.querySelector(
@@ -153,7 +139,7 @@ function updateWeather(response) {
   ${Math.round(response.data.wind.speed * 3.6)} km/h`;
   document.querySelector(
     "#humidity"
-  ).innerHTML = `<i class="fas fa-tint small-icon"></i>
+  ).innerHTML = `<i class="wi wi-humidity small-icon"></i>
   ${response.data.main.humidity}%`;
   getCoordinates(response.data.coord);
 }

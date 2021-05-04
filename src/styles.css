@@ -1,6 +1,13 @@
+:root {
+  --color-a: #ffde7d;
+  --color-b: #00b8a9;
+  --color-c: #f6416c;
+  --color-d: #1a535c;
+}
+
 body {
-  border-color: #ffde7d;
-  color: #00b8a9;
+  border-color: var(--color-a);
+  color: var(--color-b);
   display: block;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0 auto;
@@ -15,8 +22,8 @@ h1 {
   display: inline;
 }
 h2 {
-  color: #f6416c;
-  font-size: 1.05rem;
+  color: var(--color-c);
+  font-size: 18px;
   font-weight: 500;
   margin: 0;
 }
@@ -35,114 +42,110 @@ hr {
   margin: 11px;
 }
 .card {
-  border-color: #ffde7d;
+  border-color: var(--color-a);
   margin: 5px 0;
   text-align: center;
   width: 100%;
 }
-
 .card-body {
   padding: 5px;
 }
 #city-input {
-  border-color: #ffde7d;
+  border-color: var(--color-a);
 }
 #city-input:focus {
-  border-color: #ffde7d;
+  border-color: var(--color-a);
   box-shadow: 0 0 0 0.2rem rgb(255 222 125 / 25%);
 }
 .btn-search {
-  border-color: #f6416c;
-  color: #f6416c;
+  border-color: var(--color-c);
+  color: var(--color-c);
 }
 .btn-search:hover {
-  background: #f6416c;
-  border-color: #f6416c;
+  background: var(--color-c);
+  border-color: var(--color-c);
   transition: all 500ms ease;
 }
 .btn-search:active {
-  border-color: #f6416c;
-  background: #f6416c;
+  border-color: var(--color-c);
+  background: var(--color-c);
 }
 .btn-search:focus {
   box-shadow: 0 0 0 0.2rem rgb(246 65 108 / 25%);
 }
-
 .btn-location {
-  border-color: #00b8a9;
-  color: #00b8a9;
+  border-color: var(--color-b);
+  color: var(--color-b);
 }
 .btn-location:hover {
-  background: #00b8a9;
-  border-color: #00b8a9;
+  background: var(--color-b);
+  border-color: var(--color-b);
   transition: all 500ms ease;
 }
 .btn-location:active {
-  border-color: #00b8a9;
-  background: #00b8a9;
+  border-color: var(--color-b);
+  background: var(--color-b);
 }
 .btn-location:focus {
   box-shadow: 0 0 0 0.2rem rgb(0 184 169 / 25%);
 }
 .btn-labels {
-  border-color: #1a535c;
-  color: #1a535c;
+  border-color: var(--color-d);
+  color: var(--color-d);
 }
 .btn-labels.active,
 .btn-labels:hover {
-  background-color: #1a535c;
-  border-color: #1a535c;
+  background-color: var(--color-d);
+  border-color: var(--color-d);
   color: white;
 }
 .btn-unit-inputs:active + .btn-labels {
   color: white;
-  background-color: #00b8a9;
-  border-color: #00b8a9;
+  background-color: var(--color-b);
+  border-color: var(--color-b);
 }
-
 .btn-unit-inputs:focus + .btn-labels,
 .btn-labels:focus {
   box-shadow: 0 0 0 0.2rem rgb(26 83 92 / 25%);
 }
-
 #country {
   font-size: small;
   font-style: italic;
 }
-
 .row {
   --bs-gutter-x: 5px;
 }
 .card-today h2 strong {
-  font-size: 60px;
+  font-size: 65px;
+  line-height: 0.9;
 }
-.weather-icon {
-  color: #1a535c;
+.icon-now {
+  color: var(--color-d);
+  font-size: 80px;
+}
+.big-icon {
+  color: var(--color-d);
   font-size: 45px;
-}
-.icon {
-  height: 70px;
-  margin: -15px 0px;
 }
 .small-icon,
 .temperatures-max {
-  color: #1a535c;
+  color: var(--color-d);
   font-weight: 600;
 }
 #disclaimer {
-  color: #f6416c;
+  color: var(--color-c);
   font-size: smaller;
   font-weight: 600;
   margin: -5px 0px 5px 0px;
 }
 .card-footer {
   background-color: #f8f3d4;
-  border-top: 1px solid #ffde7d;
+  border-top: 1px solid var(--color-a);
   display: block;
   font-size: small;
   text-align: center;
 }
 .github-link,
 .github-link:visited {
-  color: #1a535c;
+  color: var(--color-d);
 }
